@@ -1,5 +1,9 @@
 package main
 
-func main() {
+import (
+	"gBlog/core"
+)
 
+func main() {
+	core.InitConfig()
 }
