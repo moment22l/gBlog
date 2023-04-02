@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94b0c85-6d74-4cb7-81de-97e9171ee4b1" name="变更" comment="feat: the init of gorm">
-      <change afterPath="$PROJECT_DIR$/core/logrus.go" afterDir="false" />
+    <list default="true" id="c94b0c85-6d74-4cb7-81de-97e9171ee4b1" name="变更" comment="feat: the init of logger">
+      <change afterPath="$PROJECT_DIR$/api/enter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/settings_api/enter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/enter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global/vars.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/vars.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/conf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config_system.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config_system.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
@@ -59,7 +62,7 @@
       <recent name="F:\GOProjects\gBlog\config" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 构建.go build main.go">
+  <component name="RunManager" selected="Go 构建.go build gBlog">
     <configuration name="go build conf.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gBlog" />
       <working_directory value="$PROJECT_DIR$" />
@@ -89,8 +92,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go 构建.go build main.go" />
         <item itemvalue="Go 构建.go build gBlog" />
+        <item itemvalue="Go 构建.go build main.go" />
         <item itemvalue="Go 构建.go build conf.go" />
       </list>
     </recent_temporary>
@@ -103,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680436206602</updated>
-      <workItem from="1680436208017" duration="6672000" />
+      <workItem from="1680436208017" duration="8036000" />
     </task>
     <task id="LOCAL-00001" summary="feat: the init of basic config">
       <created>1680441067387</created>
@@ -119,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680441668008</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: the init of logger">
+      <created>1680443394414</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680443394414</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +149,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: the init of basic config" />
     <MESSAGE value="feat: the init of gorm" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: the init of gorm" />
+    <MESSAGE value="feat: the init of logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: the init of logger" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

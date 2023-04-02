@@ -3,6 +3,7 @@ package main
 import (
 	"gBlog/core"
 	"gBlog/global"
+	"gBlog/routers"
 )
 
 func main() {
@@ -10,9 +11,11 @@ func main() {
 	core.InitConfig()
 	// 初始化日志
 	global.Log = core.InitLogger()
-	global.Log.Warnln("xxx")
-	global.Log.Error("xxx")
-	global.Log.Info("xxx")
-	// 初始化gorm
+	// 初始化gorm, 连接数据库
 	global.DB = core.InitGorm()
+	// 初始化routers
+	router := routers.InitRouter()
+	addr := global.Conf.System.Addr()
+	global.Log.Infof("server run on %s", addr)
+	router.Run(addr)
 }
