@@ -2,7 +2,6 @@ package core
 
 import (
 	"gBlog/global"
-	"log"
 	"time"
 
 	"gorm.io/driver/mysql"
@@ -12,7 +11,7 @@ import (
 
 func InitGorm() *gorm.DB {
 	if global.Conf.Mysql.Host == "" {
-		log.Fatalf("无mysql地址")
+		global.Log.Error("mysql's host is missing")
 		return nil
 	}
 	var l logger.Interface
@@ -26,7 +25,8 @@ func InitGorm() *gorm.DB {
 		Logger: l,
 	})
 	if err != nil {
-		log.Fatalf("mysql连接失败")
+		global.Log.Error("open mysql fail")
+		return nil
 	}
 	sqlDB, _ := db.DB()
 	sqlDB.SetMaxIdleConns(global.Conf.Mysql.MaxIdleConns)
