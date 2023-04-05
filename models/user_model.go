@@ -15,6 +15,6 @@ type UserModel struct {
 	IP             string           `gorm:"size:20" json:"ip"`                                                                // ip地址
 	Role           ctype.Role       `gorm:"size:4;default:1" json:"role"`                                                     // 用户角色
 	SignStatus     ctype.SignStatus `gorm:"type=smallint(6)" json:"sign_status"`                                              // 注册来源
-	ArticleModels  []ArticleModel   `gorm:"foreignKey:AuthID" json:"-"`                                                       // 发布的文章列表
-	CollectsModels []ArticleModel   `gorm:"many2many:auth2_collects;joinForeignKey:AuthID;JoinReferences:ArticleID" json:"-"` // 收藏的文章列表
+	ArticleModels  []ArticleModel   `gorm:"foreignKey:UserID" json:"-"`                                                       // 发布的文章列表
+	CollectsModels []ArticleModel   `gorm:"many2many:user2_collects;joinForeignKey:UserID;JoinReferences:ArticleID" json:"-"` // 收藏的文章列表
 }

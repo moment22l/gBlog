@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"gBlog/core"
+	"gBlog/flag"
 	"gBlog/global"
 	"gBlog/routers"
 	"gBlog/utils/error_code"
@@ -21,13 +23,20 @@ func main() {
 	} else {
 		global.ErrorMap = errorMap
 	}
+	// 命令行参数绑定
+	option := flag.Parse()
+	fmt.Println(option)
+	if flag.IsWebStop(option) {
+		flag.SwitchOption(option)
+		return
+	}
 	// 初始化routers
 	router := routers.InitRouter()
 	addr := global.Conf.System.Addr()
 	global.Log.Infof("server run on %s", addr)
 	err = router.Run(addr)
 	if err != nil {
-		global.Log.Error("run server failed")
+		global.Log.Error(err.Error())
 		return
 	}
 }
