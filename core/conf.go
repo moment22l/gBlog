@@ -3,12 +3,16 @@ package core
 import (
 	"gBlog/config"
 	"gBlog/global"
-	"gopkg.in/yaml.v3"
+	"io/fs"
 	"io/ioutil"
+
+	"gopkg.in/yaml.v3"
 )
 
+const ConfigFile = "conf.yaml"
+
+// InitConfig 初始化配置
 func InitConfig() {
-	const ConfigFile = "conf.yaml"
 	configFile, err := ioutil.ReadFile(ConfigFile)
 	if err != nil {
 		global.Log.Error("open config file failed")
@@ -21,4 +25,18 @@ func InitConfig() {
 		return
 	}
 	global.Conf = conf
+}
+
+// 修改配置文件
+func ModifyConf() error {
+	byteData, err := yaml.Marshal(global.Conf)
+	if err != nil {
+		return err
+	}
+	err = ioutil.WriteFile(ConfigFile, byteData, fs.ModePerm)
+	if err != nil {
+		return err
+	}
+	global.Log.Info("修改配置文件成功")
+	return nil
 }

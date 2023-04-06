@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"gBlog/core"
 	"gBlog/flag"
 	"gBlog/global"
@@ -25,7 +24,6 @@ func main() {
 	}
 	// 命令行参数绑定
 	option := flag.Parse()
-	fmt.Println(option)
 	if flag.IsWebStop(option) {
 		flag.SwitchOption(option)
 		return

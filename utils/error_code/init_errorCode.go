@@ -10,6 +10,7 @@ type ErrorCode int
 
 const (
 	SettingsError ErrorCode = 1001 // 系统错误
+	ArgumentError ErrorCode = 1002 // 参数错误
 )
 
 type ErrorMap map[ErrorCode]string
