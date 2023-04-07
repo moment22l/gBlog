@@ -35,3 +35,15 @@ site_info:
     bilibili_url: https://space.bilibili.com/66627205
     gitee_url: https://gitee.com/moment22
     github_url: https://github.com/moment22l
+qi_niu:
+    enable: false
+    access_key: UMM-xx-FdRIF-xx
+    secret_key: xx
+    bucket: moment
+    cdn: xx://xx.xx.com/
+    zone: cn
+    size: 5
+upload:
+    size: 5
+    path: uploads/file
+    store_path: uploads/file

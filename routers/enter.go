@@ -6,10 +6,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// RouterGroup 路由组
 type RouterGroup struct {
 	*gin.RouterGroup
 }
 
+// InitRouter 初始化路由
 func InitRouter() *gin.Engine {
 	gin.SetMode(global.Conf.System.Env)
 	router := gin.Default()
@@ -19,5 +21,6 @@ func InitRouter() *gin.Engine {
 	// 路由分层
 	// 系统配置Api
 	routerGroupApp.SettingsRouter()
+	routerGroupApp.ImagesRouter()
 	return router
 }
