@@ -6,11 +6,13 @@ import (
 
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 var (
-	Conf     *config.Config
-	DB       *gorm.DB
-	Log      *logrus.Logger
-	ErrorMap error_code.ErrorMap
+	Conf     *config.Config      // 整体配置
+	DB       *gorm.DB            // 数据库
+	Log      *logrus.Logger      // 默认日志
+	ErrorMap error_code.ErrorMap // 错误码表
+	MysqlLog logger.Interface    // mysql日志类型
 )

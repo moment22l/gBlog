@@ -4,8 +4,8 @@ import (
 	"gBlog/config"
 	"gBlog/core"
 	"gBlog/global"
-	"gBlog/utils/common"
 	"gBlog/utils/error_code"
+	"gBlog/utils/res"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,7 +17,7 @@ func (SettingsApi) SettingsInfoUpdateView(c *gin.Context) {
 	err := c.ShouldBindUri(&cr)
 	if err != nil {
 		global.Log.Error(err)
-		common.FailWithCode(error_code.ArgumentError, c)
+		res.FailWithCode(error_code.ArgumentError, c)
 		return
 	}
 	// 按照uri中的name去修改对应配置信息
@@ -27,18 +27,18 @@ func (SettingsApi) SettingsInfoUpdateView(c *gin.Context) {
 		err = c.ShouldBindJSON(&info)
 		if err != nil {
 			global.Log.Error(err)
-			common.FailWithCode(error_code.ArgumentError, c)
+			res.FailWithCode(error_code.ArgumentError, c)
 			return
 		}
 		global.Conf.SiteInfo = info
 	default:
-		common.FailWithMessage("没有对应的配置信息", c)
+		res.FailWithMessage("没有对应的配置信息", c)
 	}
 	err = core.ModifyConf()
 	if err != nil {
 		global.Log.Error(err)
-		common.FailWithMessage(err.Error(), c)
+		res.FailWithMessage(err.Error(), c)
 		return
 	}
-	common.Ok(c)
+	res.Ok(c)
 }

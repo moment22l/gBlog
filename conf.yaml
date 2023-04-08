@@ -37,11 +37,12 @@ site_info:
     github_url: https://github.com/moment22l
 qi_niu:
     enable: false
-    access_key: UMM-xx-FdRIF-xx
-    secret_key: xx
-    bucket: moment
-    cdn: xx://xx.xx.com/
-    zone: cn
+    access_key: ayfHkBSKcF3yXE0Z2L9m8tMyda7fuYQmfaqAx9JK
+    secret_key: TSPApyakyLrF6gTGpZ8wsUULm36vCByDepdIBFBg
+    bucket: g-blog-moment
+    cdn: rsstai7vk.hn-bkt.clouddn.com/
+    zone: z2
+    prefix: "gBlog"
     size: 5
 upload:
     size: 5

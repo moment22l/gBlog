@@ -2,8 +2,8 @@ package settings_api
 
 import (
 	"gBlog/global"
-	"gBlog/utils/common"
 	"gBlog/utils/error_code"
+	"gBlog/utils/res"
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,13 +18,13 @@ func (SettingsApi) SettingsInfoView(c *gin.Context) {
 	err := c.ShouldBindUri(&cr)
 	if err != nil {
 		global.Log.Error(err)
-		common.FailWithCode(error_code.ArgumentError, c)
+		res.FailWithCode(error_code.ArgumentError, c)
 		return
 	}
 	switch cr.Name {
 	case "site":
-		common.OkWithData(global.Conf.SiteInfo, c)
+		res.OkWithData(global.Conf.SiteInfo, c)
 	default:
-		common.FailWithMessage("没有对应的配置信息", c)
+		res.FailWithMessage("没有对应的配置信息", c)
 	}
 }
