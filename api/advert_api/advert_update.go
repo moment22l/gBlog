@@ -4,10 +4,12 @@ import (
 	"gBlog/global"
 	"gBlog/models"
 	"gBlog/utils/res"
+
 	"github.com/fatih/structs"
 	"github.com/gin-gonic/gin"
 )
 
+// AdvertUpdateView 更新广告内容
 func (AdvertApi) AdvertUpdateView(c *gin.Context) {
 	id := c.Param("id")
 	var cr AdvertRequest

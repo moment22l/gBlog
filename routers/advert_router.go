@@ -8,5 +8,5 @@ func (r RouterGroup) AdvertRouter() {
 	r.POST("advert/create", app.AdvertCreateView)
 	r.GET("advert/list", app.AdvertListView)
 	r.PUT("advert/:id", app.AdvertUpdateView)
-	r.DELETE("advert/delete")
+	r.DELETE("advert/remove", app.AdvertRemoveView)
 }

@@ -18,7 +18,7 @@ func (ImagesApi) ImagesRemoveView(c *gin.Context) {
 	err := c.ShouldBindJSON(&cr)
 	if err != nil {
 		global.Log.Error(err)
-		res.FailWithMessage(global.ErrorMap[error_code.ArgumentError], c)
+		res.FailWithCode(error_code.ArgumentError, c)
 		return
 	}
 
