@@ -26,7 +26,7 @@ func ComList[T any](model T, option Option) (list []T, err error) {
 		option.Sort = "created_at desc" // 默认按照创建的时间排序 顺序(从晚到早)
 	}
 
-	total := db.Select("id").Find(&list).RowsAffected
+	total := db.Where(model).Select("id").Find(&list).RowsAffected
 	offset := (option.Page - 1) * option.Limit
 	if offset < 0 {
 		offset = 0
@@ -35,6 +35,6 @@ func ComList[T any](model T, option Option) (list []T, err error) {
 		err = errors.New("页码过大")
 		return
 	}
-	err = db.Limit(option.Limit).Offset(offset).Order(option.Sort).Find(&list).Error
+	err = db.Where(model).Limit(option.Limit).Offset(offset).Order(option.Sort).Find(&list).Error
 	return
 }
