@@ -36,7 +36,7 @@ site_info:
     gitee_url: https://gitee.com/moment22
     github_url: https://github.com/moment22l
 qi_niu:
-    enable: false
+    enable: true
     access_key: ayfHkBSKcF3yXE0Z2L9m8tMyda7fuYQmfaqAx9JK
     secret_key: TSPApyakyLrF6gTGpZ8wsUULm36vCByDepdIBFBg
     bucket: g-blog-moment

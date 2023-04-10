@@ -68,7 +68,7 @@ func (ImageService) ImageUploadService(file *multipart.FileHeader) (res FileUplo
 	var bannerModel models.BannerModel
 	err = global.DB.Take(&bannerModel, "hash = ?", fileHash).Error
 	if err == nil {
-		global.Log.Error(err)
+		global.Log.Error("所上传的图片已存在")
 		res.FileName = bannerModel.Path
 		res.Msg = "图片已存在"
 		return

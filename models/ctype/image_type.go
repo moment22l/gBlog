@@ -5,6 +5,8 @@ import (
 	"strconv"
 )
 
+// TODO: 没有起作用
+
 type ImageType int
 
 const (

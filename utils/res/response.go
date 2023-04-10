@@ -72,6 +72,7 @@ func FailWithCode(code error_code.ErrorCode, c *gin.Context) {
 	msg, ok := global.ErrorMap[code]
 	if ok {
 		Result(int(code), map[string]any{}, msg, c)
+		return
 	}
 	Result(ERROR, map[string]any{}, "unknown error", c)
 }
