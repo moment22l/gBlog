@@ -14,6 +14,12 @@ type ImageUpdateRequest struct {
 }
 
 // ImagesUpdateView 修改图片名称
+// @Tags 图片管理
+// @Summary 修改图片名称
+// @param data body ImageUpdateRequest true "修改名称所需参数"
+// @Router /api/images/update [PUT]
+// @Produce json
+// @Success 200 {object} res.Response{msg=string}
 func (ImagesApi) ImagesUpdateView(c *gin.Context) {
 	// 获取参数
 	var cr ImageUpdateRequest

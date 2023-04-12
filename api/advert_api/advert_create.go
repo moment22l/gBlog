@@ -16,6 +16,12 @@ type AdvertRequest struct {
 }
 
 // AdvertCreateView 添加广告
+// @Tags 广告管理
+// @Summary 创建广告
+// @param data body AdvertRequest true "创建广告请求"
+// @Router /api/advert/create [POST]
+// @Produce json
+// @Success 200 {object} res.Response{}
 func (AdvertApi) AdvertCreateView(c *gin.Context) {
 	var cr AdvertRequest
 	err := c.ShouldBindJSON(&cr)

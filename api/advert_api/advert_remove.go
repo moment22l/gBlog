@@ -10,7 +10,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// AdvertRemoveView 删除广告
+// AdvertRemoveView 批量删除广告
+// @Tags 广告管理
+// @Summary 批量删除广告
+// @param data body models.RemoveList true "需要删除的广告的id列表"
+// @Router /api/advert/remove [DELETE]
+// @Produce json
+// @Success 200 {object} res.Response{msg=string}
 func (AdvertApi) AdvertRemoveView(c *gin.Context) {
 	var cr models.RemoveList
 	err := c.ShouldBindJSON(&cr)

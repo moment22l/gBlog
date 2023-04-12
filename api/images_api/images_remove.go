@@ -13,6 +13,12 @@ import (
 // TODO: 删除七牛的逻辑
 
 // ImagesRemoveView 删除图片
+// @Tags 图片管理
+// @Summary 删除图片
+// @param data body models.RemoveList true "需要删除的图片的id列表"
+// @Router /api/images/remove [DELETE]
+// @Produce json
+// @Success 200 {object} res.Response{msg=string}
 func (ImagesApi) ImagesRemoveView(c *gin.Context) {
 	var cr models.RemoveList
 	err := c.ShouldBindJSON(&cr)

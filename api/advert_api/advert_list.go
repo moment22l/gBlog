@@ -12,9 +12,15 @@ import (
 )
 
 // AdvertListView 广告列表
+// @Tags 广告管理
+// @Summary 查看广告列表
+// @param data query models.PageInfo true "查询参数"
+// @Router /api/advert/list [GET]
+// @Produce json
+// @Success 200 {object} res.Response{data=res.List[models.AdvertModel]}
 func (AdvertApi) AdvertListView(c *gin.Context) {
 	var cr models.PageInfo
-	err := c.ShouldBindJSON(&cr)
+	err := c.ShouldBindQuery(&cr)
 	if err != nil {
 		global.Log.Error(err)
 		res.FailWithCode(error_code.ArgumentError, c)

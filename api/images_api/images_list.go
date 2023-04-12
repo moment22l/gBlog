@@ -10,7 +10,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ImagesListView 图片列表
+// ImagesListView 查看图片列表
+// @Tags 图片管理
+// @Summary 查看图片列表
+// @param data query models.PageInfo true "查询参数"
+// @Router /api/images/list [GET]
+// @Produce json
+// @Success 200 {object} res.Response{data=res.List[models.BannerModel]}
 func (ImagesApi) ImagesListView(c *gin.Context) {
 	var cr models.PageInfo
 	err := c.ShouldBindQuery(&cr)

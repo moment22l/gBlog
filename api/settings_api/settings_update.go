@@ -10,7 +10,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// SettingsInfoUpdateView 修改配置文件视图
+// SettingsInfoUpdateView 修改配置文件
+// @Tags 系统配置管理
+// @Summary 修改配置文件
+// @param data body config.SiteInfo true "修改后的配置信息"
+// @Router /api/settings/:name [POST]
+// @Produce json
+// @Success 200 {object} res.Response{}
 func (SettingsApi) SettingsInfoUpdateView(c *gin.Context) {
 	// 绑定Uri
 	var cr SettingsUri

@@ -6,8 +6,15 @@ import (
 	"gBlog/global"
 	"gBlog/routers"
 	"gBlog/utils/error_code"
+
+	_ "gBlog/docs"
 )
 
+// @title gBlog server API文档
+// @version 1.0
+// @description gBlog server API文档
+// @host 127.0.0.1:8080
+// @BasePath /
 func main() {
 	// 初始化配置
 	core.InitConfig()

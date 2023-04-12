@@ -1,0 +1,348 @@
+basePath: /
+definitions:
+  advert_api.AdvertRequest:
+    properties:
+      href:
+        description: 超链接
+        type: string
+      images:
+        description: 图片
+        type: string
+      is_show:
+        description: 是否展示
+        type: boolean
+      title:
+        description: 标题
+        type: string
+    required:
+    - href
+    - images
+    - title
+    type: object
+  config.SiteInfo:
+    properties:
+      addr:
+        type: string
+      bei_an:
+        type: string
+      bilibili_url:
+        type: string
+      created_at:
+        type: string
+      email:
+        type: string
+      gitee_url:
+        type: string
+      github_url:
+        type: string
+      job:
+        type: string
+      name:
+        type: string
+      qq_image:
+        type: string
+      slogan:
+        type: string
+      slogan_en:
+        type: string
+      title:
+        type: string
+      version:
+        type: string
+      web:
+        type: string
+      wechat_image:
+        type: string
+    type: object
+  image_svc.FileUploadResponse:
+    properties:
+      file_name:
+        description: 文件名
+        type: string
+      is_success:
+        description: 是否上传成功
+        type: boolean
+      msg:
+        description: 消息
+        type: string
+    type: object
+  images_api.ImageUpdateRequest:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    required:
+    - id
+    - name
+    type: object
+  models.RemoveList:
+    properties:
+      id_list:
+        items:
+          type: integer
+        type: array
+    type: object
+  res.List:
+    properties:
+      count:
+        type: integer
+      list: {}
+    type: object
+  res.Response:
+    properties:
+      code:
+        type: integer
+      data: {}
+      msg:
+        type: string
+    type: object
+host: 127.0.0.1:8080
+info:
+  contact: {}
+  description: gBlog server API文档
+  title: gBlog server API文档
+  version: "1.0"
+paths:
+  /api/advert/:id:
+    put:
+      parameters:
+      - description: 更新后的广告信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/advert_api.AdvertRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 更新广告内容
+      tags:
+      - 广告管理
+  /api/advert/create:
+    post:
+      parameters:
+      - description: 创建广告请求
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/advert_api.AdvertRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/res.Response'
+      summary: 创建广告
+      tags:
+      - 广告管理
+  /api/advert/list:
+    get:
+      parameters:
+      - in: query
+        name: key
+        type: string
+      - description: 一页的数量
+        in: query
+        name: limit
+        type: integer
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - in: query
+        name: sort
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/res.List'
+              type: object
+      summary: 查看广告列表
+      tags:
+      - 广告管理
+  /api/advert/remove:
+    delete:
+      parameters:
+      - description: 需要删除的广告的id列表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.RemoveList'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 批量删除广告
+      tags:
+      - 广告管理
+  /api/images/list:
+    get:
+      parameters:
+      - in: query
+        name: key
+        type: string
+      - description: 一页的数量
+        in: query
+        name: limit
+        type: integer
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - in: query
+        name: sort
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/res.List'
+              type: object
+      summary: 查看图片列表
+      tags:
+      - 图片管理
+  /api/images/remove:
+    delete:
+      parameters:
+      - description: 需要删除的图片的id列表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/models.RemoveList'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 删除图片
+      tags:
+      - 图片管理
+  /api/images/update:
+    put:
+      parameters:
+      - description: 修改名称所需参数
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/images_api.ImageUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      summary: 修改图片名称
+      tags:
+      - 图片管理
+  /api/images/upload:
+    post:
+      parameters:
+      - description: 上传的文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/image_svc.FileUploadResponse'
+                  type: array
+              type: object
+      summary: 上传多个图片
+      tags:
+      - 图片管理
+  /api/settings/:name:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                ' msg':
+                  type: string
+                data:
+                  $ref: '#/definitions/config.SiteInfo'
+              type: object
+      summary: 查看配置信息
+      tags:
+      - 系统配置管理
+    post:
+      parameters:
+      - description: 修改后的配置信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/config.SiteInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/res.Response'
+      summary: 修改配置文件
+      tags:
+      - 系统配置管理
+swagger: "2.0"

@@ -10,6 +10,12 @@ import (
 )
 
 // AdvertUpdateView 更新广告内容
+// @Tags 广告管理
+// @Summary 更新广告内容
+// @param data body AdvertRequest true "更新后的广告信息"
+// @Router /api/advert/:id [PUT]
+// @Produce json
+// @Success 200 {object} res.Response{msg=string}
 func (AdvertApi) AdvertUpdateView(c *gin.Context) {
 	id := c.Param("id")
 	var cr AdvertRequest
