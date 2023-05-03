@@ -48,3 +48,7 @@ upload:
     size: 5
     path: uploads/file
     store_path: uploads/file
+jwt:
+    secret: xxxx
+    expires: 2
+    issuer: "1234"

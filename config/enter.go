@@ -8,4 +8,5 @@ type Config struct {
 	SiteInfo SiteInfo `yaml:"site_info"`
 	QiNiu    QiNiu    `yaml:"qi_niu"`
 	Upload   Upload   `yaml:"upload"`
+	Jwt      Jwt      `yaml:"jwt"`
 }
