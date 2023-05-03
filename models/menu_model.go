@@ -4,8 +4,8 @@ import "gBlog/models/ctype"
 
 type MenuModel struct {
 	Model
-	MenuTitle    string        `gorm:"size:32" json:"menu_title"`
-	MenuTitleEn  string        `gorm:"size:32" json:"menu_title_en"`
+	Title        string        `gorm:"size:32" json:"title"`                                                                      // 标题
+	Path         string        `gorm:"size:32" json:"path"`                                                                       // 路径
 	Slogan       string        `gorm:"size:64" json:"slogan"`                                                                     // slogan
 	Abstract     ctype.Array   `gorm:"type:string" json:"abstract"`                                                               // 简介
 	AbstractTime int           `json:"abstractTime"`                                                                              // 简介的切换时间
