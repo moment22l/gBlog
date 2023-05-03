@@ -66,6 +66,15 @@ definitions:
         description: 消息
         type: string
     type: object
+  images_api.ImageResponse:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      path:
+        type: string
+    type: object
   images_api.ImageUpdateRequest:
     properties:
       id:
@@ -233,6 +242,25 @@ paths:
                   $ref: '#/definitions/res.List'
               type: object
       summary: 查看图片列表
+      tags:
+      - 图片管理
+  /api/images/listName:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/images_api.ImageResponse'
+                  type: array
+              type: object
+      summary: 查看图片名称列表
       tags:
       - 图片管理
   /api/images/remove:
