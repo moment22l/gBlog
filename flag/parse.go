@@ -1,9 +1,12 @@
 package flag
 
-import sysFlag "flag"
+import (
+	sysFlag "flag"
+	"github.com/fatih/structs"
+)
 
 type Option struct {
-	DB   bool
+	DB   bool   `structs:""`
 	User string // -u admin
 }
 
@@ -19,11 +22,21 @@ func Parse() Option {
 }
 
 // IsWebStop 是否停止web项目
-func IsWebStop(option Option) bool {
-	if option.DB {
-		return true
+func IsWebStop(option Option) (f bool) {
+	m := structs.Map(&option)
+	for _, val := range m {
+		switch val.(type) {
+		case string:
+			if val != "" {
+				f = true
+			}
+		case bool:
+			if val == true {
+				f = true
+			}
+		}
 	}
-	return true
+	return f
 }
 
 // SwitchOption 根据命令执行不同函数
