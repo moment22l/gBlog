@@ -22,6 +22,8 @@ func main() {
 	global.Log = core.InitLogger()
 	// 初始化gorm, 连接数据库
 	global.DB = core.InitGorm()
+	// 初始化redis
+	global.Redis = core.ConnectRedis()
 	// 初始化错误码信息
 	errorMap, err := error_code.InitErrorCode()
 	if err != nil {
@@ -29,12 +31,14 @@ func main() {
 	} else {
 		global.ErrorMap = errorMap
 	}
+
 	// 命令行参数绑定
 	option := flag.Parse()
 	if flag.IsWebStop(option) {
 		flag.SwitchOption(option)
 		return
 	}
+
 	// 初始化routers
 	router := routers.InitRouter()
 	addr := global.Conf.System.Addr()

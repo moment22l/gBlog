@@ -52,3 +52,8 @@ jwt:
     secret: xxxx
     expires: 2
     issuer: "1234"
+redis:
+    ip: "127.0.0.1"
+    port: 6379
+    password: "redis"
+    pool_size: 100
