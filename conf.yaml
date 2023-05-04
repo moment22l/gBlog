@@ -57,3 +57,11 @@ redis:
     port: 6379
     password: ""
     pool_size: 100
+email:
+    host: "smtp.qq.com"
+    port: 587
+    user: "825073522@qq.com"
+    auth_code: "zeeumiwhalfkbbjh"
+    default_from_email: "gBlog"
+    use_ssl: true
+    use_tls: false
