@@ -27,5 +27,6 @@ func InitRouter() *gin.Engine {
 	routerGroupApp.AdvertRouter()   // 广告
 	routerGroupApp.MenuRouter()     // 菜单
 	routerGroupApp.UserRouter()     // 用户
+	routerGroupApp.TagRouter()      // 标签
 	return router
 }
