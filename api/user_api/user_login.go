@@ -10,15 +10,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// EmailLoginRequest 邮箱登录所需Request
-type EmailLoginRequest struct {
+// UserLoginRequest 邮箱登录所需Request
+type UserLoginRequest struct {
 	UserName string `json:"user_name" binding:"required" msg:"请输入用户名"`
 	Password string `json:"password" binding:"required" msg:"请输入密码"`
 }
 
-// EmailLoginView 邮箱登录
-func (UserApi) EmailLoginView(c *gin.Context) {
-	var cr EmailLoginRequest
+// UserLoginView 邮箱登录
+func (UserApi) UserLoginView(c *gin.Context) {
+	var cr UserLoginRequest
 	err := c.ShouldBindJSON(&cr)
 	if err != nil {
 		global.Log.Error(err)

@@ -37,10 +37,10 @@ site_info:
     github_url: https://github.com/moment22l
 qi_niu:
     enable: true
-    access_key: ayfHkBSKcF3yXE0Z2L9m8tMyda7fuYQmfaqAx9JK
-    secret_key: TSPApyakyLrF6gTGpZ8wsUULm36vCByDepdIBFBg
-    bucket: g-blog-moment
-    cdn: rsstai7vk.hn-bkt.clouddn.com/
+    access_key: xxx
+    secret_key: xxx
+    bucket: xxx
+    cdn: xxx
     zone: z2
     prefix: "gBlog"
     size: 5
@@ -61,7 +61,7 @@ email:
     host: "smtp.qq.com"
     port: 587
     user: "825073522@qq.com"
-    auth_code: "zeeumiwhalfkbbjh"
+    auth_code: "xxx"
     default_from_email: "gBlog"
     use_ssl: true
     use_tls: false
