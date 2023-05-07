@@ -2,6 +2,7 @@ package api
 
 import (
 	"gBlog/api/advert_api"
+	"gBlog/api/article_api"
 	"gBlog/api/images_api"
 	"gBlog/api/menu_api"
 	"gBlog/api/settings_api"
@@ -17,6 +18,7 @@ type Group struct {
 	MenuApi     menu_api.MenuApi
 	UserApi     user_api.UserApi
 	TagApi      tag_api.TagApi
+	ArticleApi  article_api.ArticleApi
 }
 
 // ApiGroupApp api组应用

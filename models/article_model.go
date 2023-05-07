@@ -15,8 +15,6 @@ type ArticleModel struct {
 	CommentModels []CommentModel `gorm:"foreignKey:ArticleID" json:"-"`           // 文章的评论列表
 	UserModel     UserModel      `gorm:"foreignKey:UserID" json:"-"`              // 文章作者
 	UserID        uint           `json:"user_id"`                                 // 用户id
-	Category      string         `gorm:"size:20" json:"category"`                 // 文章分类
-	Source        string         `json:"source"`                                  // 文章来源
 	Link          string         `json:"link"`                                    // 原文链接
 	Banner        BannerModel    `gorm:"foreignKey:BannerID" json:"-"`            // 文章封面
 	BannerID      uint           `json:"banner_id"`                               // 封面ID
