@@ -32,7 +32,7 @@ func (AdvertApi) AdvertListView(c *gin.Context) {
 	if strings.Contains(referer, "admin") {
 		isShow = false
 	}
-	list, err := common.ComList(models.AdvertModel{IsShow: isShow}, common.Option{
+	list, err := common.ComList(models.AdvertModel{IsShow: isShow}, global.DB, common.Option{
 		PageInfo: cr,
 		Debug:    false,
 	})

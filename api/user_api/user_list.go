@@ -26,9 +26,10 @@ func (UserApi) UserListView(c *gin.Context) {
 	}
 	// list分页查询用户列表
 	var users []models.UserModel
-	list, err := common.ComList(models.UserModel{}, common.Option{
-		PageInfo: cr,
-	})
+	list, err := common.ComList(
+		models.UserModel{}, global.DB.Preload("ArticleModels").Preload("CollectsModels"), common.Option{
+			PageInfo: cr,
+		})
 	if err != nil {
 		global.Log.Error(err)
 		res.FailWithMessage(err.Error(), c)

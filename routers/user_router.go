@@ -20,5 +20,5 @@ func (r RouterGroup) UserRouter() {
 	r.POST("user/logout", middleware.JwtAuth(), userApi.UserLogoutView)          // 用户登出
 	r.DELETE("user/remove", middleware.JwtAdmin(), userApi.UserRemoveView)       // 删除用户
 	r.POST("user/bind_email", middleware.JwtAuth(), userApi.UserBindEmailView)   // 绑定邮箱
-	r.POST("user/create", middleware.JwtAdmin(), userApi.UserCreateView)         // 创建用户
+	r.POST("user/create", userApi.UserCreateView)                                // 创建用户
 }

@@ -25,7 +25,7 @@ func (ImagesApi) ImagesListView(c *gin.Context) {
 		res.FailWithCode(error_code.ArgumentError, c)
 		return
 	}
-	list, err := common.ComList(models.BannerModel{}, common.Option{
+	list, err := common.ComList(models.BannerModel{}, global.DB, common.Option{
 		PageInfo: cr,
 		Debug:    false,
 	})

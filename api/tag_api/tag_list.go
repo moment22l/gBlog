@@ -20,7 +20,7 @@ func (TagApi) TagListView(c *gin.Context) {
 		return
 	}
 	// 获取标签列表
-	list, err := common.ComList(models.TagModel{}, common.Option{
+	list, err := common.ComList(models.TagModel{}, global.DB.Preload("Articles"), common.Option{
 		PageInfo: cr,
 		Debug:    false,
 	})

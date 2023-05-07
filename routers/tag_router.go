@@ -9,7 +9,7 @@ import (
 func (r RouterGroup) TagRouter() {
 	tagApi := api.ApiGroupApp.TagApi
 	r.POST("tag/create", middleware.JwtAdmin(), tagApi.TagCreateView)
-	r.GET("tag/list", middleware.JwtAdmin(), tagApi.TagListView)
+	r.GET("tag/list", tagApi.TagListView)
 	r.PUT("tag/:id", middleware.JwtAdmin(), tagApi.TagUpdateView)
 	r.DELETE("tag/remove", middleware.JwtAdmin(), tagApi.TagRemoveView)
 }
