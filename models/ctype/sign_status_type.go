@@ -2,7 +2,6 @@ package ctype
 
 import (
 	"encoding/json"
-	"strconv"
 )
 
 type SignStatus int
@@ -13,8 +12,8 @@ const (
 	SignEmail SignStatus = 3 // 邮箱
 )
 
-func (r SignStatus) MarshalJson() ([]byte, error) {
-	return json.Marshal(strconv.Itoa(int(r)))
+func (r SignStatus) MarshalJSON() ([]byte, error) {
+	return json.Marshal(r.String())
 }
 
 func (r SignStatus) String() string {

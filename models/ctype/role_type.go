@@ -2,7 +2,6 @@ package ctype
 
 import (
 	"encoding/json"
-	"strconv"
 )
 
 type Role int
@@ -14,8 +13,8 @@ const (
 	PermissionDisableUser Role = 4 // 黑名单用户
 )
 
-func (r Role) MarshalJson() ([]byte, error) {
-	return json.Marshal(strconv.Itoa(int(r)))
+func (r Role) MarshalJSON() ([]byte, error) {
+	return json.Marshal(r.String())
 }
 
 func (r Role) String() string {

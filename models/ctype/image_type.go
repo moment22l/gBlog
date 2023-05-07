@@ -2,10 +2,7 @@ package ctype
 
 import (
 	"encoding/json"
-	"strconv"
 )
-
-// TODO: 没有起作用
 
 type ImageType int
 
@@ -14,8 +11,8 @@ const (
 	QiNiu ImageType = 2 // 七牛云
 )
 
-func (i ImageType) MarshalJson() ([]byte, error) {
-	return json.Marshal(strconv.Itoa(int(i)))
+func (i ImageType) MarshalJSON() ([]byte, error) {
+	return json.Marshal(i.String())
 }
 
 func (i ImageType) String() string {
